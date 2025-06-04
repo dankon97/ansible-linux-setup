@@ -1,0 +1,25 @@
+---
+- name: Basic Linux Setup
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Обновление пакетов
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Установка нужных пакетов
+      apt:
+        name:
+          - htop
+          - curl
+          - fail2ban
+        state: present
+
+    - name: Создание пользователя daniil
+      user:
+        name: daniil
+        groups: sudo
+        shell: /bin/bash
+        state: present
