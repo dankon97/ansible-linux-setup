@@ -1,12 +1,17 @@
 # ⚙️ ansible-linux-setup
 
-Ansible playbook для быстрой настройки Linux-сервера:
+Ansible playbook to quickly set up a basic Linux server:
 
-- Обновление системы
-- Установка `htop`, `curl`, `fail2ban`
-- Создание пользователя `daniil`
+- Update system packages
+- Install common tools: `htop`, `curl`, `fail2ban`
+- Create a user named `daniil`
 
-## 📦 Запуск
+## 🧩 Requirements
+
+- Ansible installed on your control machine
+- SSH access to the target server
+
+## 🚀 Run
 
 ```bash
 ansible-playbook -i inventory.ini playbook.yml
