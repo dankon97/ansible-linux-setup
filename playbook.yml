@@ -1,15 +1,21 @@
+
 ---
-- name: Basic Linux Setup
+
+### 📁 `playbook.yml`
+
+```yaml
+---
+- name: Basic Linux Server Setup
   hosts: all
   become: yes
 
   tasks:
-    - name: Обновление пакетов
+    - name: Update system packages
       apt:
         update_cache: yes
         upgrade: dist
 
-    - name: Установка нужных пакетов
+    - name: Install useful tools
       apt:
         name:
           - htop
@@ -17,7 +23,7 @@
           - fail2ban
         state: present
 
-    - name: Создание пользователя daniil
+    - name: Create user 'daniil'
       user:
         name: daniil
         groups: sudo
